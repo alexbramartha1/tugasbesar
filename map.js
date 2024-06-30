@@ -120,7 +120,6 @@ if (!token) {
             document.getElementById("table-overlay").style.display = "none";
             document.getElementById("checkbox-road-view").style.display = "none";
         
-            document.getElementById("updated_table").style.display = "none";
             console.log('flagUntukDelete is yes show table');
             console.log(`Ini Flag Benar: ${ruasJalanGet}`);
         
