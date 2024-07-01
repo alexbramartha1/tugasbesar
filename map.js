@@ -1336,6 +1336,41 @@ if (!token) {
         populateTable(filteredData, ruasJalanGetFull);
     });
     
+    const selectedConditions = [];
+
+    // Fungsi untuk memperbarui tabel berdasarkan kondisi yang dipilih
+    function updateTable() {
+        const filteredData = ruasJalanGet.filter(item => {
+            // Jika tidak ada kondisi yang dipilih, tampilkan semua data
+            if (selectedConditions.length === 0) return true;
+            // Periksa apakah kondisi jalan ada dalam kondisi yang dipilih
+            return selectedConditions.includes(item.kondisi_id.toLowerCase());
+        });
+        populateTable(filteredData, ruasJalanGetFull);
+    }
+    
+    // Fungsi untuk menangani perubahan checkbox
+    function handleCheckboxChange(event) {
+        const condition = event.target.value.toLowerCase();
+        const isChecked = event.target.checked;
+        if (isChecked) {
+            // Tambahkan kondisi ke array jika checkbox dicentang
+            selectedConditions.push(condition);
+        } else {
+            // Hapus kondisi dari array jika checkbox tidak dicentang
+            const index = selectedConditions.indexOf(condition);
+            if (index > -1) {
+                selectedConditions.splice(index, 1);
+            }
+        }
+        updateTable();
+    }
+    
+    // Tambahkan event listener ke setiap checkbox
+    document.getElementById('conditionBaik').addEventListener('change', handleCheckboxChange);
+    document.getElementById('conditionSedang').addEventListener('change', handleCheckboxChange);
+    document.getElementById('conditionRusak').addEventListener('change', handleCheckboxChange);
+    
     var baikCount = 0;
     var sedangCount = 0;
     var rusakCount = 0;
@@ -1466,6 +1501,9 @@ if (!token) {
                         checkboxJalanRusak.dispatchEvent(new Event('change'));
                         checkboxJalanBaik.dispatchEvent(new Event('change'));
                         checkboxJalanSedang.dispatchEvent(new Event('change'));
+                        document.getElementById('conditionBaik').checked = false;
+                        document.getElementById('conditionSedang').checked = false;
+                        document.getElementById('conditionRusak').checked = false;
                         document.getElementById("table-overlay").style.display = "none";
                         var latlngs = decodePath(ruasJalanData.paths);
             
@@ -1505,7 +1543,10 @@ if (!token) {
         checkboxJalanRusak.checked = true;
         checkboxJalanBaik.checked = true;
         checkboxJalanSedang.checked = true;
-    
+        document.getElementById('conditionBaik').checked = false;
+        document.getElementById('conditionSedang').checked = false;
+        document.getElementById('conditionRusak').checked = false;
+        
         checkboxJalanRusak.dispatchEvent(new Event('change'));
         checkboxJalanBaik.dispatchEvent(new Event('change'));
         checkboxJalanSedang.dispatchEvent(new Event('change'));
