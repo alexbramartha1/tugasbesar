@@ -3,342 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Road Information System</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/> 
-    <link rel="stylesheet" href="mapstyle.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <h1>
-                <a href="mapview.html" class="nav-logo">Road Information System</a>
-            </h1>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#" id="upload" class="nav-a">New Ruas Jalan</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" id="lihat-ruas" class="nav-a">Lihat Ruas Jalan</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" id="logout" class="nav-a">Logout</a>
-                </li>
-            </ul>
+    <div class="session">
+        <div class="left">
+        </div>
 
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
-
-    <div class="notifikasi">
-        <center>
-            <img src="icon/icon.png" alt="" id="icon_notif">
-            <br><br>
-            <h1 id="welcome">Welcome!</h1>
-            <p id="text-p">Click explore to continue!</p>
-            <p id="text-p">Note: Centang checkbox untuk melihat jalan.</p>
-            <button id="yes-display">Explore</button>
-        </center>
-    </div>
-
-    <div class="notifikasi-load" id="loading-spinner" style="display: none;">
-        <img src="icon/Iphone-spinner-2.gif" alt="">
-    </div>
-
-    <div class="overlay-input">
         <form action="#" id="dataForm"> 
-            <div class="dropdownButton">
-                <div class="dropdownKabupaten">
-                    <button onclick="myFunctionKabuputen()" class="dropbtnkabupaten">Pilih Kabupaten</button>
-                    <div id="myDropdownKabupaten" class="dropdown-content-kabupaten">
-                        <input type="text" placeholder="Search.." id="myInputKabupaten" onkeyup="filterFunctionKabupaten()">
-
-                    </div>
-                </div>
-    
-                <div class="dropdownKecamatan">
-                    <button onclick="myFunctionKecamatan()" class="dropbtnkecamatan">Pilih Kecamatan</button>
-                    <div id="myDropdownKecamatan" class="dropdown-content-kecamatan">
-                        <input type="text" placeholder="Search.." id="myInputKecamatan" onkeyup="filterFunctionKecamatan()">
-        
-                    </div>
-                </div>
-    
-                <div class="dropdownDesa">
-                    <button onclick="myFunctionDesa()" class="dropbtndesa">Pilih Desa</button>
-                    <div id="myDropdownDesa" class="dropdown-content-desa">
-                        <input type="text" placeholder="Search.." id="myInputDesa" onkeyup="filterFunctionDesa()">
-        
-                    </div>
-                </div>
-            </div>
-            <div class="dropdownButton">
-                <div class="dropdownPerkerasan">
-                    <button onclick="myFunctionPerkerasan()" class="dropbtnperkerasan">Pilih Perkerasan</button>
-                    <div id="myDropdownPerkerasan" class="dropdown-content-perkerasan">
-                        <input type="text" placeholder="Search.." id="myInputPerkerasan" onkeyup="filterFunctionPerkerasan()">
-
-                    </div>
-                </div>
-    
-                <div class="dropdownJenis">
-                    <button onclick="myFunctionJenis()" class="dropbtnjenis">Pilih Jenis Jalan</button>
-                    <div id="myDropdownJenis" class="dropdown-content-jenis">
-                        <input type="text" placeholder="Search.." id="myInputJenis" onkeyup="filterFunctionJenis()">
-        
-                    </div>
-                </div>
-    
-                <div class="dropdownKondisi">
-                    <button onclick="myFunctionKondisi()" class="dropbtnkondisi">Pilih Kondisi Jalan</button>
-                    <div id="myDropdownKondisi" class="dropdown-content-kondisi">
-                        <input type="text" placeholder="Search.." id="myInputKondisi" onkeyup="filterFunctionKondisi()">
-        
-                    </div>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="form-ruas">
-                <div class="input-group-ruas">
-                    <label for="nama-ruas">Nama Ruas</label>
-                    <input type="text" id="nama-ruas" name="nama-ruas" placeholder="Nama Ruas">
-          
-                    <label for="kode-ruas">Kode Ruas</label>
-                    <input type="text" id="kode-ruas" name="kode-ruas" placeholder="Kode Ruas">
-
-                    <label for="lebar-ruas">Lebar Ruas</label>
-                    <input type="text" id="lebar-ruas" name="lebar-ruas" placeholder="Lebar Ruas">
-                </div>
+            
+            <h1>Road Information System</h1>
+            <p>Welcome back! Log in to your account to view the road:</p>
+            
+            <div class="floating-label">
+                <input placeholder="Email" type="email" id="email">
+                <label for="email">Email:</label>
                 
-                
-                <div id="keterangan-form">
-                    <textarea placeholder="Keterangan" id="keterangan-jalan"></textarea>
+                <div class="icon">
+                    <?xml version="1.0" encoding="UTF-8"?>
+                        <svg enable-background="new 0 0 100 100" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                            <style type="text/css">
+                                .st0{fill:none;}
+                            </style>
+                            
+                            <g transform="translate(0 -952.36)">
+                                <path d="m17.5 977c-1.3 0-2.4 1.1-2.4 2.4v45.9c0 1.3 1.1 2.4 2.4 2.4h64.9c1.3 0 2.4-1.1 2.4-2.4v-45.9c0-1.3-1.1-2.4-2.4-2.4h-64.9zm2.4 4.8h60.2v1.2l-30.1 22-30.1-22v-1.2zm0 7l28.7 21c0.8 0.6 2 0.6 2.8 0l28.7-21v34.1h-60.2v-34.1z"/>
+                            </g>
+                            
+                            <rect class="st0" width="100" height="100"/>
+                        </svg>
                 </div>
             </div>
-            <br>
-            <br>
-
-            <button id="submit" type="submit">Tandai Ruas Jalan</button>
-            <button type="button" id="register">Cancel</button>
+            
+            <div class="floating-label">
+                <input placeholder="Password" type="password" id="password" autocomplete="off">
+                <label for="password">Password:</label>
+                
+                <div class="icon">  
+                    <?xml version="1.0" encoding="UTF-8"?>
+                        <svg enable-background="new 0 0 24 24" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                            <style type="text/css">
+                                .st0{fill:none;}
+                                .st1{fill:#010101;}
+                            </style>
+                            
+                            <rect class="st0" width="24" height="24"/>
+                            <path class="st1" d="M19,21H5V9h14V21z M6,20h12V10H6V20z"/>
+                            <path class="st1" d="M16.5,10h-1V7c0-1.9-1.6-3.5-3.5-3.5S8.5,5.1,8.5,7v3h-1V7c0-2.5,2-4.5,4.5-4.5s4.5,2,4.5,4.5V10z"/>
+                            <path class="st1" d="m12 16.5c-0.8 0-1.5-0.7-1.5-1.5s0.7-1.5 1.5-1.5 1.5 0.7 1.5 1.5-0.7 1.5-1.5 1.5zm0-2c-0.3 0-0.5 0.2-0.5 0.5s0.2 0.5 0.5 0.5 0.5-0.2 0.5-0.5-0.2-0.5-0.5-0.5z"/>
+                        </svg>
+                </div>
+            </div>
+            <hr id="hr">
+            <center>
+                <button id="submit" type="submit">Log in</button>
+                <button type="button" id="register">Register</button>
+            </center>
         </form>
     </div>
-    
-    <div class="map-container">
-        <button id="scrollToTopBtn" onclick="scrollToTop()">Scroll To Top</button>
-        <button id="delete-marker">Undo Marker</button>
-        <div id="overlay-parent">
-            <div id="overlay-data">
-                <div id="text-data">
-                    <div id="wilayah-data">
-                        <div id="kabupaten-div">
-                            <h3>Kabupaten:</h3>
-                            <h2 id="kabupaten-data">Kabupaten</h2>
-                            <br>
-                            <br>
-                        </div>
 
-
-                        <div id="kecamatan-div">
-                            <h3>Kecamatan:</h3>
-                            <h2 id="kecamatan-data">Kecamatan</h2>
-                            <br>
-                            <br>
-                        </div>
-
-
-                        <div id="desa-div">
-                            <h3>Desa:</h3>
-                            <h2 id="desa-data">Desa</h2>
-                            <br>
-                            <br>
-                        </div>
-
-                    </div>
-                    <div id="jalan-data">
-                        <div id="perkerasan-div">
-                            <h3>Perkerasan:</h3>
-                            <h2 id="perkerasan-data">Perkerasan</h2>
-                            <br>
-                            <br>
-                        </div>
-
-                        <div id="jalan-div">
-                            <h3>Jenis Jalan:</h3>
-                            <h2 id="jenis-data">Jenis</h2>
-                            <br>
-                            <br>    
-                        </div>
-
-                        <div id="kondisi-div">
-                            <h3>Kondisi Jalan:</h3>
-                            <h2 id="kondisi-data">Kondisi</h2>
-                            <br>
-                            <br>
-                        </div>
-
-                    </div>
-    
-                    <div id="keterangan-singkat">
-                        <div id="nama-div">
-                            <h3>Nama Jalan:</h3>
-                            <h2 id="nama-data">Nama</h2>
-                            <br>
-                            <br>
-                        </div>
-                        
-                        <div id="lebar-div">
-                            <h3>Lebar Jalan:</h3>
-                            <h2 id="lebar-data">Lebar</h2>
-                            <br>
-                            <br>
-                        </div>
-
-                        <div id="panjang-div">
-                            <h3>Panjang Jalan:</h3>
-                            <h2 id="panjang-data">Tandai jalan....</h2>
-                            <br>
-                            <br>    
-                        </div>
-                    </div>
-
-                    <div id="wilayah-data">
-                        <div id="kabupaten-div">
-                            <h3>Kode Ruas:</h3>
-                            <h2 id="kode-data">Kode Ruas</h2>
-                            <br>
-                            <br>
-                        </div>
-
-                        <div id="center-keterangan">
-                            <h3>Keterangan:</h3>
-                            <p id="keterangan-data">Keterangan</p>     
-                        </div>
-                    </div>
-                </div>
-                <button id="submit-data" class="submit" type="submit">Submit</button>
-                <button id="edit-info" type="button">Edit Informasi</button>
-            </div>
-        </div>
-        
-        <div id="table-overlay">
-            <div id="heading-overlay">
-                <h2>Road Information Details</h2>
-                <img src="icon/close-image.png" alt="" id="close-overlay">
-            </div>
-
-            <div id="search-filter-container">
-                <div id="keterangan-untuk-angka">
-                    <div id="keterangan-bahan">
-                        <div id="kiri-bahan">
-                            <p>Berdasarkan Jenis Bahan:</p>
-                            <p id="tanah">Tanah: </p>
-                            <p id="tanah-beton">Tanah/Beton: </p>
-                            <p id="perkerasanbahan">Perkerasan: </p>
-                            <p id="koral">Koral: </p>
-                            <p id="lapen">Lapen: </p>
-                            <p id="paving">Paving: </p>
-                            <p id="hotmix">Hotmix: </p>
-                            <p id="beton">Beton: </p>
-                            <p id="beton-lapen">Beton/Lapen: </p>
-                        </div>
-                    </div>
-                    <div id="keterangan-angka">
-                        <div class="angka-container" id="angka-baik">
-                            <h3>Jalan Baik</h3>
-                            <h1 id="jumlah-baik">1</h1>
-                        </div>
-                        <div class="angka-container" id="angka-sedang">
-                            <h3>Jalan Sedang</h3>
-                            <h1 id="jumlah-sedang">1</h1>
-                        </div>
-                        <div class="angka-container" id="angka-rusak">
-                            <h3>Jalan Rusak</h3>
-                            <h1 id="jumlah-rusak">1</h1>
-                        </div>
-                    </div>
-                </div>
-                
-                <br>
-            </div>
-            <div class="condition-filters">
-                <p>Filter:</p>
-                <label>
-                    <input type="checkbox" id="conditionBaik" value="baik"> Kondisi Baik
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" id="conditionSedang" value="sedang"> Kondisi Sedang
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" id="conditionRusak" value="rusak"> Kondisi Rusak
-                </label>
-            </div>
-            <div>
-                <input type="text" placeholder="Search.." id="myInputByRuas">
-            </div>
-            <br>
-
-            <table class="styled-table">
-                <thead>
-                    <tr>
-                        <th>Ruas ID</th>
-                        <th>Desa</th>
-                        <th>Kecamatan</th>
-                        <th>Kabupaten</th>
-                        <th>Kode Ruas</th>
-                        <th>Nama Ruas</th>
-                        <th>Panjang</th>
-                        <th>Lebar</th>
-                        <th>Perkerasan</th>
-                        <th>Kondisi</th>
-                        <th>Jenis</th>
-                        <th>Keterangan</th>
-                        <th>Operasi</th>
-                    </tr>
-                </thead>
-                <tbody id="data-table-body">
-                </tbody>
-            </table>
-            
-        </div>
-
-        <div class="checkbox-road-view" id="checkbox-road-view">
-            <h3>Keterangan Kondisi Jalan</h3>
-            <br>
-            
-            <label class="container">Jalan Baik
-                <input type="checkbox" id="jalan_baik">
-                <span class="checkmark" id="green"></span>
-            </label>
-            <label class="container">Jalan Sedang
-                <input type="checkbox" id="jalan_sedang">
-                <span class="checkmark" id="yellow"></span>
-            </label>
-            <label class="container">Jalan Rusak
-                <input type="checkbox" id="jalan_rusak">
-                <span class="checkmark" id="red"></span>
-            </label>
-        </div>
-
-        <button id="hapus-marker">Hapus Marker</button>
-        <button id="delete-mark">Hapus Semua Marker</button>
-        <button id="reverse-mark">Tandai Dari Depan</button>
-        <button id="reverse-back-mark">Tandai Dari Belakang</button>
-
-        <div id="map"></div>
-    </div>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""></script>
-    <script src="map.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
